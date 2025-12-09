@@ -1,0 +1,135 @@
+---
+title: Changelog
+description: A record of updates, new features, and improvements to the Bk platform over time.
+---
+
+## Overview
+
+Stay informed about the latest enhancements to Bk Documentation, your platform for reconnecting with old friends, ex-classmates, neighbors, and colleagues. Review changes below to understand new features, bug fixes, and improvements. You access updates directly in your dashboard under `Settings > Updates`.
+
+<Callout kind="info">
+  Breaking changes appear with `tags={["breaking"]}`. Review migration steps before upgrading.
+</Callout>
+
+## Recent Releases
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added advanced search filters for location and shared interests
+- Introduced real-time notifications for new connection requests
+
+## Improvements
+
+- Optimized profile loading speed by `>40%`
+- Enhanced mobile responsiveness for group chats
+
+## Bug Fixes
+
+- Fixed duplicate contact suggestions
+- Resolved login issues on Safari browsers
+
+```javascript
+// Example: Use new search API
+const searchConnections = async (query) => {
+  const response = await fetch('/api/connections/search', {
+    method: 'POST',
+    body: JSON.stringify({ query, filters: { location: 'New York' } }),
+  });
+  return response.json();
+};
+```
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Launch of group messaging with file sharing up to 50MB
+- Integrated calendar sync for event planning with contacts
+
+## Improvements
+
+- Updated UI with brand color `#3B82F6` for primary buttons
+
+## Bug Fixes
+
+- Corrected profile photo upload failures
+- Patched security vulnerability in shared links
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Share a message in group
+await fetch('/api/groups/123/messages', {
+  method: 'POST',
+  body: JSON.stringify({ text: 'Hello team!', fileId: 'abc123' }),
+});
+```
+```python
+# Share a message in group
+import requests
+requests.post('/api/groups/123/messages', json={
+    'text': 'Hello team!',
+    'fileId': 'abc123'
+})
+```
+</CodeGroup>
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core connection discovery engine
+- Basic profile management and messaging
+
+## Breaking Changes
+
+- Updated authentication to use `{API_KEY}` instead of session tokens
+
+## Bug Fixes
+
+- Initial stability improvements
+
+<Steps>
+  <Step title="Migrate Auth" icon="settings">
+    Replace session tokens with `API_KEY` from your dashboard.
+  </Step>
+  <Step title="Test Connections" icon="check-circle">
+    Verify new searches return expected results.
+  </Step>
+</Steps>
+
+</Update>
+
+## Upcoming Changes
+
+Preview what's next for Bk Documentation.
+
+<Columns cols={3}>
+  <Card title="AI Matching" icon="zap" horizontal>
+    Smart recommendations based on mutual connections.
+  </Card>
+  <Card title="Video Calls" icon="video">
+    One-click calls with classmates and colleagues.
+  </Card>
+  <Card title="Events Hub" icon="calendar">
+    Organize and RSVP to virtual meetups.
+  </Card>
+</Columns>
+
+<Tabs>
+  <Tab title="Beta Features" icon="star">
+    Join the beta program via `Settings > Beta` to test AI matching early.
+  </Tab>
+  <Tab title="Feedback" icon="message-circle">
+    Share ideas on our forum. You help shape the roadmap.
+  </Tab>
+</Tabs>
+
+<Expandable title="How to Check Your Version" default-open="true">
+  Navigate to your profile settings. Look for the version badge next to `Bk Documentation vX.Y.Z`. Update via the app store or desktop installer.
+</Expandable>

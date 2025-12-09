@@ -1,0 +1,143 @@
+---
+title: Customizing Your Bk Experience
+description: Learn how to configure settings, notifications, and integrations to tailor Bk to your networking needs.
+---
+
+## Overview
+
+Tailor Bk to match your networking style by adjusting account preferences, notifications, privacy controls, and integrations. Access these settings from your profile menu by selecting `Settings` > `Account`. Customize everything in minutes to reconnect efficiently with old friends, ex-classmates, neighbors, and colleagues.
+
+<Columns cols={3}>
+  <Card title="Account Settings" icon="user" href="#account-settings">
+    Update your profile preferences and display options.
+  </Card>
+  <Card title="Notifications" icon="bell" href="#notifications">
+    Manage alerts for new connections and messages.
+  </Card>
+  <Card title="Privacy" icon="shield" href="#privacy">
+    Control data sharing and visibility settings.
+  </Card>
+  <Card title="Integrations" icon="plug" href="#integrations">
+    Connect Bk with your favorite tools.
+  </Card>
+</Columns>
+
+## Account Settings and Preferences
+
+Configure your personal details and interface preferences to optimize your Bk experience.
+
+<Steps>
+  <Step title="Access Settings" icon="settings">
+    Click your profile icon in the top-right corner and select `Settings`.
+  </Step>
+  <Step title="Update Profile" icon="edit">
+    Enter your preferred name, photo, and bio. Save changes to apply immediately.
+  </Step>
+  <Step title="Set Preferences" icon="sliders">
+    Choose theme (`Light` or `Dark`), language, and time zone from the `Preferences` tab.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Enable `Auto-save` in preferences to avoid losing unsaved changes during edits.
+</Callout>
+
+## Notification Management
+
+Control how Bk notifies you about new connections, messages, and events. Choose from email, push, or in-app options.
+
+<Tabs>
+  <Tab title="Email Notifications" icon="mail">
+    Receive digests for weekly summaries.
+
+    | Event Type     | Default | Customize |
+    |----------------|---------|-----------|
+    | New Connection | On      | Frequency |
+    | Messages       | On      | Priority  |
+    | Events         | Off     | Recipients|
+
+    Turn off via `Settings` > `Notifications` > `Email`.
+  </Tab>
+  <Tab title="Push Notifications" icon="phone">
+    Get instant mobile alerts.
+
+    Enable in your device settings and Bk app preferences. Select specific events like `New Message` or `Connection Request`.
+  </Tab>
+  <Tab title="In-App Alerts" icon="bell">
+    Stay updated without leaving Bk.
+
+    Toggle banners for real-time activity in `Settings` > `Notifications` > `In-App`.
+  </Tab>
+</Tabs>
+
+## Privacy and Data Sharing Options
+
+Protect your information while networking. Set visibility levels for your profile and connections.
+
+<ExpandableGroup>
+  <Expandable title="Profile Visibility" default-open="true">
+    Choose who sees your details:
+
+    - `Public`: Everyone on Bk.
+    - `Connections Only`: Mutual contacts.
+    - `Private`: You only.
+
+    Update in `Privacy` > `Profile`.
+  </Expandable>
+  <Expandable title="Data Sharing">
+    Manage third-party access:
+
+    | Option              | Description                          |
+    |---------------------|--------------------------------------|
+    | Export Contacts     | Download your network as CSV.        |
+    | Delete Activity Log | Remove search history permanently.   |
+    | Two-Factor Auth     | Enable for added security.           |
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="warning" id="privacy-warning">
+  Review connected apps regularly under `Privacy` > `Authorized Apps` to revoke unused access.
+</Callout>
+
+## Third-Party Integrations
+
+Connect Bk to tools like Google Calendar, Slack, or Zapier for seamless workflows. Use API keys for custom setups.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Set Bk API key for integrations
+  const bkConfig = {
+    apiKey: 'bk_prod_abc123xyz789',
+    endpoint: 'https://api.bk.network/v1',
+    networkId: 'your-network-uuid'
+  };
+
+  async function syncConnections() {
+    const response = await fetch(`${bkConfig.endpoint}/connections`, {
+      headers: { Authorization: `Bearer ${bkConfig.apiKey}` }
+    });
+    return response.json();
+  }
+  ```
+  ```python
+  # Configure Bk client for integrations
+  import requests
+
+  BK_API_KEY = "bk_prod_abc123xyz789"
+  ENDPOINT = "https://api.bk.network/v1"
+  NETWORK_ID = "your-network-uuid"
+
+  def sync_connections():
+      headers = {"Authorization": f"Bearer {BK_API_KEY}"}
+      response = requests.get(f"{ENDPOINT}/connections", headers=headers)
+      return response.json()
+  ```
+</CodeGroup>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Use `Bearer {bk_prod_abc123xyz789}` format. Replace with your key from `Settings` > `Integrations` > `API Keys`.
+</ParamField>
+
+<ParamField query="networkId" param-type="string" required="false">
+  Optional network identifier for segmented data.
+</ParamField>

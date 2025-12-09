@@ -1,0 +1,141 @@
+---
+title: Welcome to Bk
+description: An overview of Bk, a SaaS platform designed to help users reconnect with old friends, ex-classmates, neighbors, and colleagues through easy search and networking features.
+---
+
+## What is Bk?
+
+Bk is a powerful SaaS platform that helps you reconnect with old friends, ex-classmates, neighbors, and colleagues. You can search by name, school, workplace, or location to find and message people from your past. With secure profiles, private messaging, and group events, Bk makes networking effortless and privacy-focused.
+
+<Callout kind="info">
+  Bk prioritizes user privacy—your data stays protected with end-to-end encryption.
+</Callout>
+
+## Key Benefits
+
+Discover how Bk transforms your networking experience.
+
+<Columns cols={3}>
+  <Card title="Easy Search" icon="search" href="/docs/search">
+    Find contacts using simple filters like school name or city in seconds.
+  </Card>
+  <Card title="Secure Messaging" icon="lock" href="/docs/messaging">
+    Send private messages with end-to-end encryption.
+  </Card>
+  <Card title="Event Planning" icon="calendar" href="/docs/events">
+    Organize reunions and meetups with RSVPs and reminders.
+  </Card>
+</Columns>
+
+## Common Use Cases
+
+Tailor Bk to your needs across different scenarios.
+
+<Tabs>
+  <Tab title="Class Reunions" icon="users">
+    Search by graduation year and school to reconnect with classmates.
+    
+    ```javascript
+    // Example search query
+    const results = await bk.search({
+      school: "Lincoln High",
+      year: 2010
+    });
+    ```
+  </Tab>
+  <Tab title="Work Colleagues" icon="briefcase">
+    Filter by company and department for professional networking.
+    
+    ```javascript
+    const colleagues = await bk.search({
+      company: "TechCorp",
+      department: "Engineering"
+    });
+    ```
+  </Tab>
+  <Tab title="Neighborhood" icon="home">
+    Locate neighbors by address or zip code.
+    
+    ```javascript
+    const neighbors = await bk.search({
+      location: "123 Main St, Anytown"
+    });
+    ```
+  </Tab>
+</Tabs>
+
+## Getting Started
+
+Follow these steps to begin using Bk.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Create your free account at bk.com with email or social login.
+  </Step>
+  <Step title="Build Profile" icon="edit-3">
+    Add your schools, workplaces, and locations to improve search matches.
+  </Step>
+  <Step title="Start Searching" icon="search">
+    Use the search bar to find people—results appear instantly.
+  </Step>
+  <Step title="Connect" icon="message-circle">
+    Send a message or join a group event to reconnect.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Initialize Bk SDK
+import { Bk } from '@bk/sdk';
+
+const bk = new Bk({ apiKey: 'your-api-key' });
+
+const profile = await bk.createProfile({
+  name: 'John Doe',
+  schools: ['Lincoln High']
+});
+```
+```python
+# Initialize Bk SDK
+from bk import Bk
+
+bk = Bk(api_key='your-api-key')
+
+profile = bk.create_profile(
+    name='John Doe',
+    schools=['Lincoln High']
+)
+```
+</CodeGroup>
+
+## Brand Guidelines
+
+<Expandable title="Brand Assets and Colors" default-open="true">
+  Use Bk's primary brand color `{`#3B82F6`}` for buttons, links, and accents. This blue evokes trust and connection.
+  
+  | Element       | Color      | Hex Code     |
+  |---------------|------------|--------------|
+  | Primary       | Blue       | `#3B82F6`   |
+  | Secondary     | Gray       | `#6B7280`   |
+  | Success       | Green      | `#10B981`   |
+  | Danger        | Red        | `#EF4444`   |
+  
+  Download logos and full guidelines from the [brand kit](https://bk.com/brand).
+</Expandable>
+
+## Getting Support
+
+Reach out for help anytime.
+
+<Columns cols={2}>
+  <Card title="Documentation" icon="book-open" href="/docs">
+    Explore guides and API references.
+  </Card>
+  <Card title="Contact Us" icon="mail" href="mailto:support@bk.com" target="_blank">
+    Email our team for personalized assistance.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Join the Bk community forum for peer support and feature requests.
+</Callout>

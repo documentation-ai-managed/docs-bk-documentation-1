@@ -1,0 +1,114 @@
+---
+title: Frequently Asked Questions
+description: Common questions and answers about using Bk, troubleshooting issues, and best practices for effective networking.
+---
+
+## Account and Login Issues
+
+Bk provides secure access to reconnect you with old friends, ex-classmates, neighbors, and colleagues. If you encounter login problems, follow these structured troubleshooting steps.
+
+<Callout kind="tip">
+  Enable two-factor authentication (2FA) after resolving initial login issues to protect your account.
+</Callout>
+
+<Steps>
+  <Step title="Check Credentials" icon="check-circle">
+    Verify your email and password. Use the `Forgot Password?` link to reset if needed.
+  </Step>
+  <Step title="Clear Cache" icon="trash-2">
+    Clear your browser cache and cookies.
+
+    <Tabs>
+      <Tab title="Chrome" icon="chrome">
+        Press `Ctrl+Shift+Delete` (Windows) or `Cmd+Shift+Delete` (macOS) and select `Cookies and other site data`.
+      </Tab>
+      <Tab title="Firefox" icon="firefox">
+        Go to `Preferences > Privacy & Security > Cookies and Site Data > Clear Data`.
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Try Incognito" icon="incognito">
+    Open an incognito window and attempt login to rule out extension conflicts.
+  </Step>
+  <Step title="Contact Support" icon="mail">
+    Submit a ticket via the help center with your device details and error screenshot.
+  </Step>
+</Steps>
+
+## Search and Connection Tips
+
+Optimize your searches for better results.
+
+<Columns cols={2}>
+  <Card title="Advanced Filters" icon="filter" href="#advanced-filters">
+    Use location, school, and company filters to narrow results.
+  </Card>
+  <Card title="Bulk Connections" icon="users" href="#bulk-connections">
+    Connect with up to 50 contacts at once safely.
+  </Card>
+</Columns>
+
+<ExpandableGroup>
+  <Expandable title="How do I find ex-classmates?" default-open="true">
+    Enter your school name and graduation year in the search bar. Bk matches profiles using alumni data you provide during onboarding.
+
+    For precise results:
+
+    | Filter       | Example Input          | Expected Matches |
+    |--------------|------------------------|------------------|
+    | School       | "Lincoln High School"  | 200+ alumni     |
+    | Graduation   | "Class of 2010"        | 50 exact matches|
+    | Location     | "Seattle, WA"          | Local subset    |
+  </Expandable>
+
+  <Expandable title="Why aren't my connections responding?">
+    Users receive notifications but may have privacy settings limiting messages. Send personalized icebreakers like `Hi [Name], remember our project in 2015?`.
+  </Expandable>
+</ExpandableGroup>
+
+## Data Privacy Concerns
+
+Your data stays secure with Bk's encryption standards.
+
+<ResponseField name="privacy_policy" field-type="url" required="true">
+  Full policy at `/privacy`.
+</ResponseField>
+
+<Callout kind="alert">
+  Never share sensitive info like passwords in messages.
+</Callout>
+
+Common privacy actions:
+
+```javascript
+// Example: Update visibility settings via API
+const settings = {
+  profileVisibility: 'connections_only',
+  messageHistory: '30_days'
+};
+await fetch('/api/user/settings', {
+  method: 'PATCH',
+  body: JSON.stringify(settings)
+});
+```
+
+## Platform Updates and Feedback
+
+Stay informed on the latest features.
+
+<Update label="2024-10-01" description="v2.1.0" tags={["feature", "improvement"]}>
+## New Features
+- Enhanced search with AI suggestions
+- Mobile app dark mode
+
+## Improvements
+- Faster connection requests
+</Update>
+
+<Update label="2024-09-15" description="v2.0.0" tags={["feature"]}>
+## New Features
+- Group events for classmates
+- Export connection list
+</Update>
+
+Provide feedback via the in-app form or email `feedback@bk.com`. Your input shapes future updates.
